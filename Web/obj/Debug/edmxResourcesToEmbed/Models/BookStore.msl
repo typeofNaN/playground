@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MvcBookStoreModelStoreContainer" CdmEntityContainer="BookStoreEntities">
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="MvcBookStoreModel.Books">
+        <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="BookCoverUrl" ColumnName="BookCoverUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="MvcBookStoreModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
