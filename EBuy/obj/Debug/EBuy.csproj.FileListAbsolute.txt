@@ -94,3 +94,4 @@ F:\ASP.NET MVC\Book test\EBuy\bin\zh-Hans\System.Web.WebPages.Razor.resources.dl
 F:\ASP.NET MVC\Book test\EBuy\obj\Debug\EBuy.csproj.CoreCompileInputs.cache
 F:\ASP.NET MVC\Book test\EBuy\obj\Debug\EBuy.dll
 F:\ASP.NET MVC\Book test\EBuy\obj\Debug\EBuy.pdb
+F:\ASP.NET MVC\Book test\EBuy\obj\Debug\EBuy.csprojResolveAssemblyReference.cache
