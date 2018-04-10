@@ -1,0 +1,53 @@
+﻿@model Model.Books
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<fieldset>
+    <legend>Books</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Categories.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Categories.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Price)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.BookCoverUrl)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BookCoverUrl)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Authors)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Authors)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+
