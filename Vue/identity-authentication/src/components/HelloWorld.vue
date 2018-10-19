@@ -24,7 +24,7 @@ export default {
   methods: {
     login () {
       let {username, password} = this.loginform
-      axios.post('url', {
+      axios.post('www.api.github.com/auth', {
         username: username,
         password: password
       }).then(res => {
