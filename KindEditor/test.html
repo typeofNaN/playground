@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>KindEditor-test</title>
+  <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+  <script src="kindeditor/kindeditor-all-min.js"></script>
+  <script src="kindeditor/lang/zh-CN.js"></script>
+</head>
+<body>
+  <div style="text-align: center">
+    <textarea id="editor_id" name="content" style="width:700px;height:300px;"></textarea>
+  </div>
+  <script>
+    KindEditor.ready(function(K) {
+      window.editor = K.create('#editor_id', {
+        width: "700px"
+      });
+    });
+  </script>
+  <script>
+    var str = "&lt;strong&gt;&lt;p&gt;&lt;span style='color:red'&gt;HTML&lt;/span&gt;内容&lt;/p&gt;&lt;/strong&gt;"
+    // 在发布环境中，str为通过请求获得到的带有html标签的数据
+    $("#editor_id").html(str);    // 通过jquery的html()方法将str的值插入文本编辑器
+  </script>
+</body>
+</html>
