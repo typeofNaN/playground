@@ -8,22 +8,48 @@
   <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
   <script src="kindeditor/kindeditor-all-min.js"></script>
   <script src="kindeditor/lang/zh-CN.js"></script>
+  <style>
+    #showarea {
+      border: 2px solid #ccc;
+      width: 700px;
+      height: 400px;
+    }
+    button {
+      margin: 10px 0;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <div style="text-align: center">
     <textarea id="editor_id" name="content" style="width:700px;height:300px;"></textarea>
   </div>
+  <button id="btn1">将文本渲染到div</button>
+  <button id="btn2">将div里文本渲染到编辑器</button>
+  <br/>
+  <textarea id="showarea"></textarea>
   <script>
     KindEditor.ready(function(K) {
       window.editor = K.create('#editor_id', {
-        width: "700px"
+        width: "700px",
+        afterBlur:function(){
+          this.sync();
+        }
       });
     });
   </script>
   <script>
-    var str = "&lt;strong&gt;&lt;p&gt;&lt;span style='color:red'&gt;HTML&lt;/span&gt;内容&lt;/p&gt;&lt;/strong&gt;"
-    // 在发布环境中，str为通过请求获得到的带有html标签的数据
-    $("#editor_id").html(str);    // 通过jquery的html()方法将str的值插入文本编辑器
+    $('#btn1').click(function() {
+      html = editor.html();
+      html = $('#editor_id').val();
+      $('#showarea').val(html);
+      
+    })
+    $('#btn2').click(function() {
+      html = editor.html();
+      var str2 = $('#showarea').val();
+      editor.html(str2);
+    })
   </script>
 </body>
 </html>
