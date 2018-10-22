@@ -17,11 +17,6 @@ export default new Router({
       path: '/steps',
       name: 'steps',
       component: Steps
-    },
-    {
-      path: 'auth/signin',
-      name: 'signin',
-      components: signin
     }
   ]
 })
