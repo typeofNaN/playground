@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <hello-world />
+    <router-link to="/steps">steps</router-link>
   </div>
 </template>
 
