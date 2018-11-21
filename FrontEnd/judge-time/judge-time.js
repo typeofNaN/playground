@@ -1,5 +1,5 @@
 (function judgeTime() {
-  function time_range(beginTime, endTime) {
+  function timeRange(beginTime, endTime) {
     var img = document.getElementsByClassName("img")[0];
 
     var strb = beginTime.split(":");
@@ -21,5 +21,5 @@
       ? img.setAttribute('src', '1.png')
       : img.setAttribute('src', '2.png');
   }
-  time_range("12:00", "8:00");
+  timeRange("12:00", "8:00");
 })();
