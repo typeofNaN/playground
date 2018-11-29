@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/pages/index'
 import Steps from '@/pages/steps'
-import signin from '@/pages/auth/signin'
+// import signin from '@/pages/auth/signin'
 
 Vue.use(Router)
 

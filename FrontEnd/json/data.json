@@ -1,0 +1,12 @@
+{
+  "person": {
+    "name": "test",
+    "age": "20",
+    "sex": {
+      "1": "a",
+      "2": "b"
+    },
+    "code": "<h1>aaa</h1>",
+    "nickname": ["aaa", "bbb", "ccc"]
+  }
+}
