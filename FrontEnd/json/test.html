@@ -8,6 +8,7 @@
 </head>
 <body>
   <div id="mydiv"></div>
+  <ul></ul>
   <script>
     (function loadXMLDoc() {
       var xhr;
@@ -16,16 +17,19 @@
       xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
           let data = JSON.parse(xhr.responseText);
-          console.log(data);
           let p = data.person;
           let name = p.code;
-          console.log(name);
-          const mydiv = document.getElementById("mydiv");
-          mydiv.innerHTML = name;
-          console.log(mydiv.innerHTML);
+
           let i = 1;
           let nickname = p.nickname;
-          console.log(nickname["2"]);
+          console.log(nickname.length);
+
+          var str = ''
+          for (let i = 0; i < nickname.length; i++) {
+            str += '<li>' + nickname[i] + '</li>'
+          }
+          var ul = document.getElementsByTagName('ul')[0]
+          ul.innerHTML = str
         }
       }
       xhr.open("GET", "data.json", true);
