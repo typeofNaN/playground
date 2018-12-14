@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{172:function(t,n,s){"use strict";s.r(n);var e=s(15),i=Object(e.a)({},function(){var t=this.$createElement,n=this._self._c||t;return n("div",{staticClass:"b"},[this._v("\n  posts\n  "),n("nuxt-link",{attrs:{to:"/"}},[this._v("index")])],1)},[],!1,null,null,null);i.options.__file="index.vue";n.default=i.exports}}]);
