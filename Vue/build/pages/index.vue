@@ -22,9 +22,10 @@
         src="https://lwwasia.oss-cn-hangzhou.aliyuncs.com/public/header-footer/nav_logo.png"
         alt=""
       >
-      <nuxt-link to="/about">about1</nuxt-link>
+      <nuxt-link to="/about/about">about1</nuxt-link>
       <nuxt-link to="/posts">posts</nuxt-link>
       <nuxt-link to="/about">about</nuxt-link>
+      <nuxt-link to="/bb">bb</nuxt-link>
     </div>
   </section>
 </template>
