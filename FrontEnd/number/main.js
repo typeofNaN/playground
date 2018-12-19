@@ -1,14 +1,20 @@
 var btn = document.getElementById('btn')
+var btn1 = document.getElementById('btn1')
 var elnum = document.getElementsByClassName('num')
 var numb = document.getElementsByClassName('numb')
 var num = 0
 var qian, bai, shi, ge
 var arr9 = [9, 9, 9, 9]
 
-btn.addEventListener('click', function() {
+var aa = btn.addEventListener('click', function() {
   num++
   tran(numb[3])
   getNumbers(num)
+
+  if (num != 0 && num != 10 && ge === 0) tran(numb[2])
+  if (num != 0 && num != 100 && ge === 0 && shi === 0) tran(numb[1])
+  if (num != 0 && num != 1000 && ge ===0 && shi === 0 && bai ===0) tran(numb[0])
+  
   if (num > 9 && num < 100) show(elnum[2])
   if (num > 99 && num < 1000) show(elnum[1])
   if (num > 999 && num <= 9999) show(elnum[0])
@@ -19,6 +25,43 @@ btn.addEventListener('click', function() {
       nums[i].children[1].innerHTML = arr9[i]
     }
   }
+})
+
+var aa1 = btn1.addEventListener('click', function() {
+  var val = parseInt(document.getElementById('inp').value)
+  var i = 0
+  var speed
+
+  if (val >= 1000) speed = 5
+  if (val < 999 && val > 500) speed = 10
+  if (val <= 500 && val > 100) speed = 30
+  if (val <= 99) speed = 50
+
+  var st1 = setInterval(function() {
+    if (i < val) {
+      i++
+      num++
+      tran(numb[3])
+      getNumbers(num)
+
+      if (num != 0 && num != 10 && ge === 0) tran(numb[2])
+      if (num != 0 && num != 100 && ge === 0 && shi === 0) tran(numb[1])
+      if (num != 0 && num != 1000 && ge ===0 && shi === 0 && bai ===0) tran(numb[0])
+
+      if (num > 9 && num < 100) show(elnum[2])
+      if (num > 99 && num < 1000) show(elnum[1])
+      if (num > 999 && num <= 9999) show(elnum[0])
+      if (num > 9999) {
+        var nums = document.getElementsByClassName('num')
+        for (let i = 0; i < nums.length; i++) {
+          nums[i].children[0].innerHTML = arr9[i]
+          nums[i].children[1].innerHTML = arr9[i]
+        }
+      }
+    } else {
+      clearInterval(st1)
+    }
+  }, speed)
 })
 
 // 卡片翻转
@@ -59,3 +102,4 @@ function sc(a, b, c, d) {
     nums[i].children[1].innerHTML = arr[i]
   }
 }
+

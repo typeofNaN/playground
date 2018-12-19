@@ -45,6 +45,6 @@
 .num1, .num2, .num3 {
   opacity: 0;
 }
-#btn {
+#btn, #btn1 {
   cursor: pointer;
 }
