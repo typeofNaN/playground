@@ -1,0 +1,83 @@
+.dib {
+  display: inline-block;
+}
+
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+
+.mgb10 {
+  margin-bottom: 10px;
+}
+.mgb40 {
+  margin-bottom: 40px;
+}
+
+.pdtb4 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.pd10 {
+  padding: 10px;
+}
+.pdtb10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.col3 {
+  width: 25%;
+}
+.col12 {
+  width: 100%;
+}
+
+.all100 {
+  width: 100%;
+  height: 100%;
+}
+
+.h40 {
+  height: 40px;
+}
+.h50 {
+  height: 50px;
+}
+.h180 {
+  height: 180px;
+}
+
+.red {
+  color: red;
+}
+.gray {
+  color: gray
+}
+.gold {
+  color: gold;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+.bg-skyblue {
+  background-color: skyblue;
+}
+
+.fs12 {
+  font-size: 12px;
+}
+.fs14 {
+  font-size: 14px;
+}
+
+.lh28 {
+  line-height: 28px;
+}
+
+.text-center {
+  text-align: center;
+}

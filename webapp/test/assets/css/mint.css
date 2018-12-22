@@ -1,0 +1,11 @@
+.mint-tabbar {
+  background-color: #111;
+  height: 40px;
+  font-size: 12px;
+}
+.mint-tabbar > .mint-tab-item.is-selected {
+  background-color: #111;
+}
+.mint-tabbar > .mint-tab-item.is-selected a {
+  color: gold;
+}
