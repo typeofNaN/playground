@@ -17,7 +17,8 @@
   "dependencies": {
     "express": "^4.16.3",
     "mint-ui": "^2.2.13",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vue-awesome-mui": "^1.7.3"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

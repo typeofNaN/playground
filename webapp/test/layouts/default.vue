@@ -2,17 +2,17 @@
   <div>
     <nuxt/>
     <tab-bar/>
-    <zw/>
+    <zw40/>
   </div>
 </template>
 
 <script>
 import TabBar from '~/components/shared/TabBar.vue'
-import zw from '~/components/shared/zw.vue'
+import zw40 from '~/components/shared/zw40.vue'
 export default {
   components: {
     TabBar,
-    zw
+    zw40
   }
 }
 </script>

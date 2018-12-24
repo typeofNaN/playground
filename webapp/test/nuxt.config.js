@@ -2,7 +2,7 @@ const pkg = require('./package')
 
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
-    base: '/jd/'
+    base: '/'
   }
 } : {}
 
@@ -44,7 +44,9 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/mint-ui.js'
+    '~/plugins/mint-ui.js',
+    '~/plugins/mui.js',
+    '~/plugins/gg.js'
   ],
 
   /*
