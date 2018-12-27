@@ -1,7 +1,7 @@
 {
-  "name": "test",
+  "name": "testd",
   "version": "1.0.0",
-  "description": "My groovy Nuxt.js project",
+  "description": "My praiseworthy Nuxt.js project",
   "author": "typeofNaN",
   "private": true,
   "scripts": {
@@ -15,14 +15,14 @@
     "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate"
   },
   "dependencies": {
-    "cross-env": "^5.2.0",
     "express": "^4.16.3",
     "mint-ui": "^2.2.13",
     "nuxt": "^2.0.0",
-    "vue-awesome-mui": "^1.7.3"
+    "vue": "^2.5.21"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
+    "cross-env": "^5.2.0",
     "eslint": "^5.0.1",
     "eslint-config-prettier": "^3.1.0",
     "eslint-loader": "^2.0.0",
