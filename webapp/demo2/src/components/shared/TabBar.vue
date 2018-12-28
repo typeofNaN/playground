@@ -12,6 +12,7 @@
         <router-link
           :to="tabbar.to"
           class="all100 dib gray fs12 lh28"
+          @click="change(index)"
         >
           {{ tabbar.title }}
         </router-link>
@@ -24,7 +25,7 @@
 export default {
   data () {
     return {
-      selected: 0
+      selected: this.xz.cur
     }
   },
   computed: {
@@ -51,6 +52,12 @@ export default {
           to: '/me'
         }
       ]
+    }
+  },
+  methods: {
+    change (index) {
+      this.xz.change(index)
+      this.selected = this.xz.cur
     }
   }
 }

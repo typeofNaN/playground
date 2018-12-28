@@ -14,17 +14,13 @@
 export default {
   data () {
     return {
-      show: 1
+      show: this.showad.show
     }
   },
   methods: {
     close () {
-      console.log(this)
-      console.log(this.showad)
-      this.showad++
-      console.log(this.showad)
+      this.showad.changeshow()
       this.show++
-      console.log(this.show)
     }
   }
 }
