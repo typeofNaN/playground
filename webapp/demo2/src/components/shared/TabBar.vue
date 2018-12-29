@@ -12,9 +12,8 @@
         <router-link
           :to="tabbar.to"
           class="all100 dib gray fs12 lh28"
-          @click="change(index)"
         >
-          {{ tabbar.title }}
+          <div @click="changed(index)">{{ tabbar.title }}</div>
         </router-link>
       </mt-tab-item>
     </mt-tabbar>
@@ -55,9 +54,9 @@ export default {
     }
   },
   methods: {
-    change (index) {
+    changed (index) {
       this.xz.change(index)
-      this.selected = this.xz.cur
+      this.selected = index
     }
   }
 }
