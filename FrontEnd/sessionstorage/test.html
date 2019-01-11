@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="a">
+  <a href="test1.html">test1</a></div>
+  <span id="b">change</span>
+  <script>
+    sessionStorage.setItem('testKey','这是一个测试的value值'); // 存入一个值
+    var b = document.getElementById('b')
+    b.addEventListener('click', function() {
+      console.log(1)
+      sessionStorage.setItem('testKey','12'); // 存入一个值
+    })
+  </script>
+</body>
+</html>
