@@ -95,7 +95,7 @@ var tips = {
 };
 
 var preloadImg = function preloadImg() {
-  var imgList = ['public/images/spring-up.png'];
+  var imgList = ['/public/images/spring-up.png'];
   for (var i = 0; i < imgList.length; i++) {
     var _img = new Image();
     _img.src = imgList[i];
