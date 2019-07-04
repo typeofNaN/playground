@@ -37,7 +37,7 @@
       var res = {}
 
       for (var i = 0; i < data.length; i++) {
-        var d = data[i].time.substring(0, 10)  // 只对日期进行分组
+        var d = data[i].time.split(' ')[0]  // 只对日期进行分组
         var cur = res[d]
         if (cur === undefined) {
           res[d] = [data[i]]
