@@ -30,7 +30,7 @@
     .then(data => {
       // 先将数据按时间进行排序
       data.sort(function(a, b) {
-        return Date.parse(b.time.replace(/-/g, '/')) - Date.parse(a.time.replace(/-/g, '/'))
+        return Date.parse(a.time.replace(/-/g, '/')) - Date.parse(b.time.replace(/-/g, '/'))
       })
 
       //  将数据按时间进行分组,分组后插入res
