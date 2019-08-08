@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="content"></div>
+  <button id="speakit">speak</button>
+  <select></select>
+  <script>
+    var voiceSelect = document.querySelector('select');
+    var voices  = window.speechSynthesis.getVoices();
+console.log(voices)
+    for (var i = 0; i < voices.length; i++) {
+      var option = document.createElement('option');
+      option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+      option.setAttribute('data-lang', voices[i].lang);
+      option.setAttribute('data-name', voices[i].name);
+      voiceSelect.appendChild(option);
+    }
+  </script>
+  <script>
+    var div_content = document.getElementById('content');
+    var xhr = new XMLHttpRequest;
+    var txt = '';
+    xhr.onreadystatechange = (evt) => {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          var html = '';
+          txt = xhr.responseText;
+          xhr.responseText.split('\n').forEach(i => {
+            html += `<p>${i}</p>`
+          })
+          // div_content.innerHTML = html;
+        }
+      }
+    }
+
+    xhr.open('GET', 'a.txt');
+    xhr.send(null);
+
+    var btn_speak = document.getElementById('speakit');
+    btn_speak.addEventListener('click', () => {
+      var speakSU = new window.SpeechSynthesisUtterance();
+      speakSU.text = txt;
+      if (voiceSelect.selectedOptions[0]) {
+        var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
+        for(var i = 0; i <voices.length; i++) {
+          if (voices[i].name === selectedOption) {
+            speakSU.voice = voices[0]
+          }
+        }
+      }
+      window.speechSynthesis.speak(speakSU);
+    })
+  </script>
+</body>
+</html>
