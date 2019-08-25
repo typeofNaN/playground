@@ -148,14 +148,12 @@
 
   // 随机生成显示号码
   function _getRandomArrayElements(arr, count) {
-    var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
+    var arr1 = arr.slice(0), i = arr.length, min = i - count, idx;
     while (i-- > min) {
-      index = Math.floor((i + 1) * Math.random());
-      temp = shuffled[index];
-      shuffled[index] = shuffled[i];
-      shuffled[i] = temp;
+      idx = Math.floor((i + 1) * Math.random());
+      [arr1[i], arr1[idx]] = [arr1[idx], arr1[i]]
     }
-    return shuffled.slice(min);
+    return arr1.slice(min);
   }
 
   // 初始化
