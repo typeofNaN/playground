@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>在线撸猫</title>
   <style>
     canvas {
       cursor: pointer;
@@ -17,29 +17,28 @@
 </body>
 <script src="./live2d.js"></script>
 <script>
-  var config = {
-    model: {
-        jsonPath: 'tororo/assets/tororo.model.json' // 加载模型的json路径
-    },
-    display: {
-        superSample: 1, // 超采样等级
-        width: 360, // canvas的宽度
-        height: 400, // canvas的高度
-        position: 'left', // 显示位置：左或右
-        hOffset: 0, // canvas水平偏移
-        vOffset: 0, // canvas垂直偏移
-    },
-    mobile: {
-        show: true, // 是否在移动设备上显示
-        scale: 1, // 移动设备上的缩放
-        motion: true, // 移动设备是否开启重力感应
-    },
-    react: {
-        opacityDefault: 1, // 默认透明度
-        opacityOnHover: 1 // 鼠标移上透明度
-    }
+var config = {
+  model: {
+    jsonPath: 'tororo/assets/tororo.model.json'
+  },
+  display: {
+    superSample: 1,
+    width: 360,
+    height: 400,
+    position: 'left',
+    hOffset: 0,
+    vOffset: 0
+  },
+  mobile: {
+    show: true,
+    scale: 1,
+    motion: true
+  },
+  react: {
+    opacityDefault: 1,
+    opacityOnHover: 1
+  }
 }
-
 L2Dwidget.init(config)
 </script>
 </html>
