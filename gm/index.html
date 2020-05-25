@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>htllo</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <style>
+    *,
+    :after,
+    :before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      font-size: 12px;
+    }
+    p, input {
+      font-size: 1.15rem;
+    }
+    a {
+      text-decoration: none;
+      color: lightcoral
+    }
+    #app {
+      max-width: 767px;
+      margin: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .search_box {
+      margin-bottom: 10px;
+    }
+    .search-input,
+    .search-input:focus {
+      display: block;
+      width: 100%;
+      padding: 8px 10px;
+      margin: 0;
+      line-height: 1.5;
+      border-radius: 3px;
+      outline: 0;
+      -ms-progress-appearance: unset;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    .clearfix:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .code {
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      background-color: #eee;
+      padding: 2px 5px;
+    }
+    .emoji {
+      float: left;
+      width: 50%;
+      line-height: 1.5;
+    }
+    @media (max-width: 425px) {
+      .emoji {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <section class="search_box">
+      <input type="text" class="search-input" name="search_text" placeholder="please enter" />
+    </section>
+    <section>
+      <div id="main" class="clearfix"></div>
+    </section>
+  </div>
+</body>
+</html>
+
+<script>
+  var apiUrl = 'https://api.github.com/emojis'
+  var emojis = $('#main')
+  var search_input = $('input[name="search_text"]')
+  var render = (k, v, i) => {
+    setTimeout(() => {
+      var search_text = search_input.val()
+      var emoji_img = `
+        <img src="${v}" alt=":${k}:" width="22" style="vertical-align: middle;margin-right: 3px;">
+      `
+      var html = `
+        <p class="emoji" data-emoji="${k}" style="display:${search_text ? (k.indexOf(search_text) !== -1 ? 'none' : 'block') : 'block'}">
+          ${emoji_img}
+          <code class="code" style="vertical-align:middle;">:${k}:</code>
+        </p>
+      `
+      emojis.append(html)
+    }, i * 10)
+  }
+
+  search_input.on('input', (evt) => {
+    var val = evt.target.value
+    if (val === '') {
+      emojis.children().show()
+      return
+    }
+    emojis.children().each((i, el) => {
+      var cur = $(el)
+      if (cur.attr('data-emoji').indexOf(val) !== -1) {
+        cur.show()
+      } else {
+        cur.hide()
+      }
+    })
+  })
+
+  $.get(apiUrl).done((data) => {
+    var i = 0
+    for (var k in data) {
+      if (data.hasOwnProperty(k)) {
+        render(k, data[k], ++i);
+      }
+    }
+  }).fail((err) => {
+    console.log(err);
+  })
+</script>
