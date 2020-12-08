@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.4dc744eb85fb113d7ae782f06fac3367.js"
+  "precache-manifest.0b1897927026124a1408800f2f13e30e.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "d2p-communicate-admin"});
