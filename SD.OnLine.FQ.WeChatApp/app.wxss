@@ -1,0 +1,301 @@
+/**app.wxss**/
+@import "colorui/main.wxss";
+@import "colorui/icon.wxss";
+
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+/* width各种尺寸-start，数字+p表示百分比 */
+.width-100 {
+  width: 100%;
+}
+
+/* width-end */
+
+
+/* flex布局-start */
+.flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.flex-sub {
+  flex-grow: 1;
+}
+
+/* flex布局-end */
+
+/* padding各种尺寸-start */
+.padding {
+  padding: 32rpx;
+}
+
+.padding-lg {
+  padding: 40rpx;
+}
+
+.padding-sm {
+  padding: 20rpx;
+}
+
+.padding-xs {
+  padding: 10rpx;
+}
+
+.padding-lr {
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+}
+
+.padding-lr-lg {
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+
+.padding-lr-sm {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.padding-lr-xs {
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.padding-tb-lg {
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+
+.padding-tb {
+  padding-top: 32rpx;
+  padding-bottom: 32rpx;
+}
+
+.padding-tb-sm {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.padding-tb-xs {
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.padding-l {
+  padding-left: 32rpx;
+}
+
+.padding-l-lg {
+  padding-left: 40rpx;
+}
+
+.padding-l-sm {
+  padding-left: 20rpx;
+}
+
+.padding-l-xs {
+  padding-left: 10rpx;
+}
+
+.padding-b {
+  padding-bottom: 32rpx;
+}
+
+.padding-b-lg {
+  padding-bottom: 40rpx;
+}
+
+.padding-b-sm {
+  padding-bottom: 20rpx;
+}
+
+.padding-xs {
+  padding-bottom: 10rpx;
+}
+
+.padding-r {
+  padding-right: 32rpx;
+}
+
+.padding-r-lg {
+  padding-right: 40rpx;
+}
+
+.padding-r-sm {
+  padding-right: 20rpx;
+}
+
+.padding-r-xs {
+  padding-right: 10rpx;
+}
+
+.padding-t {
+  padding-top: 32rpx;
+}
+
+.padding-t-lg {
+  padding-top: 40rpx;
+}
+
+.padding-t-sm {
+  padding-top: 20rpx;
+}
+
+.padding-t-xs {
+  padding-top: 10rpx;
+}
+
+/* padding各种尺寸-end */
+
+/* margin各种尺寸-start */
+.margin {
+  margin: 32rpx;
+}
+
+.margin-lg {
+  margin: 40rpx;
+}
+
+.margin-sm {
+  margin: 20rpx;
+}
+
+.margin-xs {
+  margin: 10rpx;
+}
+
+.margin-tb {
+  margin-top: 32rpx;
+  margin-bottom: 32rpx;
+}
+
+.margin-tb-lg {
+  margin-bottom: 40rpx;
+  margin-top: 40rpx;
+}
+
+.margin-tb-sm {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.margin-tb-xs {
+  margin-bottom: 10rpx;
+  margin-top: 10rpx;
+}
+
+.margin-lr {
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+}
+
+.margin-lr-lg {
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+
+.margin-lr-sm {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.margin-lr-xs {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+
+.margin-l {
+  margin-left: 32rpx;
+}
+
+.margin-l-lg {
+  margin-left: 40rpx;
+}
+
+.margin-l-sm {
+  margin-left: 20rpx;
+}
+
+.margin-l-xs {
+  margin-left: 10rpx;
+}
+
+.margin-r {
+  margin-right: 32rpx;
+}
+
+.margin-r-lg {
+  margin-right: 40rpx;
+}
+
+.margin-r-sm {
+  margin-right: 20rpx;
+}
+
+.margin-r-xs {
+  margin-right: 10rpx;
+}
+
+.margin-t {
+  margin-top: 32rpx;
+}
+
+.margin-t-lg {
+  margin-top: 40rpx;
+}
+
+.margin-t-sm {
+  margin-top: 20rpx;
+}
+
+.margin-t-xs {
+  margin-top: 10rpx;
+}
+
+.margin-b {
+  margin-bottom: 32rpx;
+}
+
+.margin-b-lg {
+  margin-bottom: 40rpx;
+}
+
+.margin-b-sm {
+  margin-bottom: 20rpx;
+}
+
+.margin-b-xs {
+  margin-bottom: 10rpx;
+}
+
+/* margin各种尺寸-end */
+
+/* text的相关-start */
+.text-lightblack{
+  color: rgb(102, 102, 102);
+}
+/* text相关-end */

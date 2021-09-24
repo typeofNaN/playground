@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="margin-tb-sm padding-lr-sm">您正在使用的是实时音视频辅助公证系统，请进行身份认证，认证成功后您将与公证员进行视频相关事宜，若您对上述情况均不知情，请点击下方“退出”按钮退出小程序</view>
+  <view class="cu-form-group">
+    <view class="title">
+      姓名
+    </view>
+    <view>{{personForm.borrower_Name}}</view>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">身份证号</view>
+    <view>{{personForm.id_Number}}</view>
+
+  </view>
+  <view class="margin-t-lg flex align-center justify-evenly">
+    <navigator target="miniProgram" open-type="exit" class="cu-btn bg-grey radius">退出小程序</navigator>
+    <view class="cu-btn bg-green radius" bindtap="onFaceAuth">人脸识别</view>
+  </view>
+  <!-- <view class="margin-t cu-btn block bg-blue" bindtap="onConnect">websocket连接</view> -->
+
+  <view class="cu-modal {{errModal?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">错误提示</view>
+        <!-- <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view> -->
+      </view>
+      <view class="padding-xl">
+        <view class="text-lg text-orange">{{errTxt}}</view>
+      </view>
+      <view class="cu-bar bg-white">
+        <view class="action margin-0 flex-sub text-green solid-left" bindtap="onChangeModal">好的
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

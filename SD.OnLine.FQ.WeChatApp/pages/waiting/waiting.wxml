@@ -1,0 +1,99 @@
+<!--pages/waiting/waiting.wxml-->
+<view class="container flex align-center flex-column">
+  <view class="text-xl text-center margin-tb">公证员与您预约实时视频的时间为：</view>
+  <view class="text-red text-bold text-xxl text-center">{{start_Time}}</view>
+  <view class="text-red text-bold text-lg text-center margin-tb-sm">至</view>
+  <view class="text-red text-bold text-xxl text-center">{{end_Time}}</view>
+  <block wx:if="{{!hasAppointment}}">
+
+    <view class="width-100 margin-t text-bold text-lg padding-l-sm">是否同意：</view>
+    <radio-group class="block width-100" bindchange="onChangeInput">
+      <view class="cu-form-group margin-top">
+        <view class="title">同意</view>
+        <radio checked value="1"></radio>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">不同意</view>
+        <radio value="0"></radio>
+      </view>
+    </radio-group>
+  </block>
+
+  <block wx:else>
+    <view class="width-100 margin-t cu-form-group">
+      <view class="title">
+        姓名
+      </view>
+      <view>{{personForm.borrower_Name}}<text class="{{isAuthed?'text-green':'text-red'}}">（{{isAuthed?'已核验':'未核验'}}）</text></view>
+    </view>
+    <view class="width-100 cu-form-group">
+      <view class="title">身份证号</view>
+      <view>{{personForm.id_Number}}</view>
+    </view>
+  </block>
+
+  <view class="width-100 margin-t-lg flex align-center justify-evenly">
+    <navigator target="miniProgram" open-type="exit" class="cu-btn bg-grey radius lg">退出小程序</navigator>
+    <view wx:if="{{!hasAppointment&&clickable}}" class="cu-btn {{clickable?'bg-blue':'bg-gray'}}  radius lg" bindtap="onSubmit">
+      提交</view>
+    <view wx:elif="{{hasAppointment&&!isAuthed}}" class="cu-btn bg-blue  radius lg" bindtap="onFaceAuth">进入房间</view>
+  </view>
+
+  <!-- <view class="cu-btn bg-green" bindtap="onReadyRoom">进入房间</view> -->
+  <block wx:if="{{!hasAppointment}}">
+    <view class="text-red padding-lr-sm margin-t">注：请订阅小程序消息通知，用于获取视频预约以及排队叫号信息。</view>
+
+  </block>
+  <block wx:else>
+    <view class="text-red text-bold text-l width-100 padding-sm text-lg">指引：</view>
+    <view class="text-lightblack padding-lr-sm">您已成功预约与公证员远程视频的时间，请先进行<text class="text-orange">人脸识别</text>后，<text
+        class="text-orange">耐心</text>等待公证员接入。</view>
+    <view class="padding-lr-sm text-red">注：等待请不要关闭或退出小程序，公证员将在收到您的上线通知后第一时间与您连接</view>
+    <!-- <view class="text-red padding-lr-sm margin-t">注：请进行人脸识别后耐心等候公证员进行视频。</view> -->
+  </block>
+
+  <view class="cu-modal {{errModal?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">注意</view>
+        <!-- <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view> -->
+      </view>
+      <view class="padding-xl">
+        <view class="text-lg text-orange">{{errTxt}}</view>
+      </view>
+      <view class="cu-bar bg-white">
+        <view class="action margin-0 flex-sub text-green solid-left" data-key="errModal" bindtap="onChangeModal">好的
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-modal {{waitingModal?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content text-orange">提示</view>
+        <!-- <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view> -->
+      </view>
+      <view class="padding-lr-xl padding-b padding-t-sm">
+        <!-- <view class="cu-load text-gray {{!isLoad?'loading':'over'}}"></view> -->
+        <view class="text-lg text-green padding-b">人脸识别成功</view>
+        <view class="text-bold text-left">注意：</view>
+        <view class="text-left">1.若您已准备好视频，请点击下面的“<text
+            class="text-green">我已准备好</text>”按钮，然后耐心等待公证员连接视频，期间请不要退出此小程序,并将手机电量保持在<text class="text-blue">50%以上</text>；
+        </view>
+        <view class="text-left">2.若您未准备好，可先退出此小程序，在准备好后从<text class="text-blue">订阅消息</text>重新进入；</view>
+      </view>
+      <view class="cu-bar bg-white">
+        <view class="action margin-0 flex-sub text-lightblack solid-left" data-key="waitingModal"
+          bindtap="onChangeModal">我还没准备好
+        </view>
+        <view class="action margin-0 flex-sub text-green solid-left" bindtap="onReadyRoom">我已准备好
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
