@@ -1,4 +1,0 @@
-<!-- 在模版上放置标签 -->
-<view class="page-room">
-  <trtc-room id="trtc-component" config="{{rtcConfig}}"></trtc-room>
-</view>
