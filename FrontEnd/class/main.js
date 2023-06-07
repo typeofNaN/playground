@@ -26,26 +26,26 @@ class Area {
 
   // 根据进度筛选数据
   getData(type) {
-    let datas = [];
+    let dataList = [];
 
-    switch(type) {
+    switch (type) {
       case 0:
         for (let i in this.dt) {
-          datas.push(i);
+          dataList.push(i);
         }
         break;
       case 1:
         let data2 = this.dt[this.curArr[0]]
         for (let i in data2) {
-          datas.push(i);
+          dataList.push(i);
         }
         break;
       case 2:
-        datas = this.dt[this.curArr[0]][this.curArr[1]].split(',');
+        dataList = this.dt[this.curArr[0]][this.curArr[1]].split(',');
         break;
     }
 
-    return datas;
+    return dataList;
   }
 
   // 渲染到页面节点

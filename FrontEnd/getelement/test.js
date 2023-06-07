@@ -2,14 +2,14 @@ var li = document.getElementsByClassName('nav-li')
 var li1 = document.getElementsByClassName('li1')
 var ul1 = document.getElementsByClassName('ul1')[0]
 for (let i = 0; i < li.length; i++) {
-  li[i].onclick = function() {
+  li[i].onclick = function () {
     addClass(this, 'red')
     ul1.slideDown()
   }
 }
 
 for (let i = 0; i < li1.length; i++) {
-  li1[i].onclick = function() {
+  li1[i].onclick = function () {
     removeClass(this, 'red')
   }
 }
@@ -42,7 +42,7 @@ function fadeIn(element, speed) {
   var num = 0
   if (element.style.display == 'none') element.style.display = 'block'
   element.style.opacity = num
-  var st = setInterval(function() {
+  var st = setInterval(function () {
     num++
     element.style.opacity = num / 10
     if (num >= 10) clearInterval(st)
@@ -51,9 +51,9 @@ function fadeIn(element, speed) {
 function fadeOut(element, speed) {
   var speed = speed || 30
   var num = 10
-  var st = setInterval(function(hide) {
+  var st = setInterval(function (hide) {
     num--
-    element.style.opacity = num / 10 
+    element.style.opacity = num / 10
     if (num <= 0) {
       element.style.display = 'none'
       clearInterval(st)
@@ -65,20 +65,19 @@ function fadeOut(element, speed) {
 //   var height = element.clientHeight
 //   element.style.height = 0
 //   element.style.overflow = 'hidden'
-  
-  
+
 //   console.log(height)
 //   var time = time || 5
 //   element.style.height = height + 'px'
 //   element.style.transition = 'height' + ' ' + time + 's'
-  
+
 // }
-Object.prototype.slideDown = function() {
+Object.prototype.slideDown = function () {
   this.style.display = 'block'
   if (this.clientHeight < this.scrollHeight) {
     this.style.height = 10 + this.clientHeight + "px";
     var _this = this;
-    setTimeout(function() {
+    setTimeout(function () {
       _this.slideDown();
     }, 10000)
   } else {

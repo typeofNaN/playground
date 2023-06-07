@@ -5,14 +5,14 @@ export default class DomHandler {
     else
       element.className += ' ' + className;
   }
-  
+
   addMultipleClasses(element: any, className: string): void {
     if (element.classList) {
       const styles: string[] = className.split(' ');
       for (let i = 0; i < styles.length; i++) {
         element.classList.add(styles[i]);
       }
-      
+
     } else {
       const styles: string[] = className.split(' ');
       for (let i = 0; i < styles.length; i++) {
@@ -20,14 +20,14 @@ export default class DomHandler {
       }
     }
   }
-  
+
   removeClass(element: any, className: string): void {
     if (element.classList)
       element.classList.remove(className);
     else
       element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
   }
-  
+
   hasClass(element: any, className: string): boolean {
     if (element.classList)
       return element.classList.contains(className);
@@ -72,6 +72,7 @@ export default class DomHandler {
       last = +new Date();
 
       if (opacity < 1) {
+        // @ts-ignore
         (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
       }
     };

@@ -8,7 +8,7 @@ export default class Carousel {
   private readonly el!: HTMLElement;
   private slideWrapEl!: HTMLElement;
 
-  private pagenationWrapEl!: HTMLElement;
+  private paginationWrapEl!: HTMLElement;
   private slides!: NodeListOf<Element>;
 
   // 容器宽度
@@ -36,7 +36,7 @@ export default class Carousel {
   }
 
   private init() {
-    this.initPagenation();
+    this.initPagination();
 
     // 左箭头
     const arrowLeft = document.createElement('div');
@@ -45,7 +45,7 @@ export default class Carousel {
     // 右箭头
     const arrowRight = document.createElement('div');
     arrowRight.className = 'carousel-arrow right';
-    [this.pagenationWrapEl, arrowLeft, arrowRight].forEach(item => this.el.appendChild(item));
+    [this.paginationWrapEl, arrowLeft, arrowRight].forEach(item => this.el.appendChild(item));
 
     // 初始化事件
     this._initEvents();
@@ -53,7 +53,7 @@ export default class Carousel {
   }
 
   // 初始化分页器
-  private initPagenation() {
+  private initPagination() {
     this.slides = this.slideWrapEl.querySelectorAll('.carousel-slide');
     const dotNum = this.slides.length;
     let wrapLen = dotNum;
@@ -75,30 +75,30 @@ export default class Carousel {
     this.slideWrapEl.style.width = wrapLen * 100 + '%';
 
     // 分页器
-    this.pagenationWrapEl = document.createElement('div');
-    this.pagenationWrapEl.className = 'carousel-pagination-wrap';
+    this.paginationWrapEl = document.createElement('div');
+    this.paginationWrapEl.className = 'carousel-pagination-wrap';
     let iEl = '';
 
     for (let a = 0; a < dotNum; a++) {
       iEl += `<i class="${a === this.activeIndex ? 'active' : ''}"></i>`;
     }
-    this.pagenationWrapEl.innerHTML = iEl;
+    this.paginationWrapEl.innerHTML = iEl;
   }
 
 
   // 绑定事件
   private _initEvents() {
-    const pagenations = this.pagenationWrapEl.children;
+    const paginationChildren = this.paginationWrapEl.children;
     const arrowLeft = this.el.querySelector('.carousel-arrow.left');
     const arrowRight = this.el.querySelector('.carousel-arrow.right');
-    if (!arrowLeft || ! arrowRight) {
+    if (!arrowLeft || !arrowRight) {
       return;
     }
     arrowLeft.addEventListener('click', () => this.go(-1));
     arrowRight.addEventListener('click', () => this.go(1));
 
-    for(let a = 0; a < pagenations.length; a++) {
-      pagenations[a].addEventListener('click', () => this.navigation(a));
+    for (let a = 0; a < paginationChildren.length; a++) {
+      paginationChildren[a].addEventListener('click', () => this.navigation(a));
     }
 
     this.slideWrapEl.addEventListener('webkitTransitionEnd', this.onTransitionEnd.bind(this));
@@ -114,18 +114,17 @@ export default class Carousel {
     const len = this.slides.length;
     const index = dir > 0 ? this.activeIndex + 1 : this.activeIndex - 1;
     this.activeIndex = (index + len) % len;
-      if (this.options.loop) {
-        this.loop(dir);
-      }else{
-        this.slideWrapEl.style.left = -this.activeIndex * this.elWidth + 'px';
-      }
+    if (this.options.loop) {
+      this.loop(dir);
+    } else {
+      this.slideWrapEl.style.left = -this.activeIndex * this.elWidth + 'px';
+    }
     this.updateDots(this.activeIndex);
   }
-  
 
   private loop(dir: number) {
     const oldLeft = this.getLeft(this.slideWrapEl);
-    
+
     // 这里可以利用下dir的正负
     // const newLeft = dir > 0 ? oldLeft - this.elWidth : oldLeft + this.elWidth;
     const newLeft = oldLeft + this.elWidth * -dir;
@@ -145,7 +144,7 @@ export default class Carousel {
   // 底部圆点
   private updateDots(index: number) {
     // console.log(index);
-    const dots = this.pagenationWrapEl.childNodes;
+    const dots = this.paginationWrapEl.childNodes;
     for (let a = 0; a < dots.length; a++) {
       (<HTMLElement>dots[a]).classList.remove('active');
     }
@@ -160,26 +159,26 @@ export default class Carousel {
         this.slideWrapEl.style.transitionDuration = '0s';
         this.slideWrapEl.style.left = '-4000px';
         // console.log('跳最后一个');
-      }else if (left <= -(this.slides.length + 1) * this.elWidth) {
+      } else if (left <= -(this.slides.length + 1) * this.elWidth) {
         this.slideWrapEl.style.transitionDuration = '0s';
         this.slideWrapEl.style.left = '-800px';
         // console.log('跳第一个');
       }
     }
     this.isTransiting = false;
-    
+
     // 发射选中事件，响应DatePicker.on方法
     // this.trigger('transitionEnd', this.activeIndex);
-    
+
     this.emitEvent('onTransitionEnd', this.activeIndex);
   }
-  
+
   private autoPlay() {
     if (this.options.autoplay) {
       this.timer = setInterval(() => this.go(1), this.options.delay);
     }
   }
-  
+
   private clearInterval() {
     if (this.timer) {
       clearInterval(this.timer);
@@ -187,7 +186,7 @@ export default class Carousel {
     }
   }
 
-  private getLeft(el: HTMLElement): number{
+  private getLeft(el: HTMLElement): number {
     if (!el.style.left) {
       return 0;
     }
@@ -200,5 +199,4 @@ export default class Carousel {
       this.options[type](args);
     }
   }
-
 }

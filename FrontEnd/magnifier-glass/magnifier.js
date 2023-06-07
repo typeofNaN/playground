@@ -46,13 +46,13 @@ class Magnifier {
         top = this.magnifier.offsetHeight - this.floatBox.offsetHeight;
       }
       // 将left值和top值传给放大镜
-      this.floatBox.style.left = left + 'px'; 
+      this.floatBox.style.left = left + 'px';
       this.floatBox.style.top = top + 'px';
-      
+
       // 比例计算
       let percentX = left / (this.magnifier.offsetWidth - this.floatBox.offsetWidth);
       let percentY = top / (this.magnifier.offsetHeight - this.floatBox.offsetHeight);
-      
+
       this.bigImg.style.left = -percentX * (this.bigImg.offsetWidth - this.bigBox.offsetWidth) + 'px';
       this.bigImg.style.top = -percentY * (this.bigImg.offsetHeight - this.bigBox.offsetHeight) + 'px';
     })

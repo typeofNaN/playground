@@ -14,21 +14,21 @@ export default class EventEmitter {
     this.eventTypes = {};
     names.forEach(type => this.eventTypes[type] = type);
   }
-  
+
   on(type: string, fn: Function, context = this) {
     if (!this.events[type]) {
       this.events[type] = [];
     }
-    
+
     // 保存type事件对应的函数
     this.events[type].push([fn, context]);
   }
-  
+
   // 触发type事件
   trigger(type: string, ...args: any[]) {
     let events = this.events[type];
     if (!events) return;
-    
+
     let len = events.length;
     let eventsCopy = events.slice();
     let ret;

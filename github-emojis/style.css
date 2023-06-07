@@ -5,25 +5,32 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   font-size: 12px;
 }
-p, input {
+
+p,
+input {
   font-size: 1.15rem;
 }
+
 a {
   text-decoration: none;
   color: lightcoral
 }
+
 #app {
   max-width: 767px;
   margin: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+
 .search_box {
   margin-bottom: 10px;
 }
+
 .search-input,
 .search-input:focus {
   display: block;
@@ -38,22 +45,26 @@ a {
   -moz-appearance: none;
   appearance: none;
 }
+
 .clearfix:after {
   content: '';
   display: block;
   clear: both;
 }
+
 .code {
   border: 1px solid #ddd;
   border-radius: 3px;
   background-color: #eee;
   padding: 2px 5px;
 }
+
 .emoji {
   float: left;
   width: 50%;
   line-height: 1.5;
 }
+
 @media (max-width: 425px) {
   .emoji {
     width: 100%;

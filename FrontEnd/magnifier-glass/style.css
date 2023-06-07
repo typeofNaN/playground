@@ -19,9 +19,11 @@
   z-index: 1;
   border-radius: 10px;
 }
-img{
+
+img {
   border-radius: 10px;
 }
+
 #floatBox {
   display: none;
   width: 140px;
@@ -38,7 +40,7 @@ img{
   position: absolute;
   display: block;
   width: 400px;
-  height:400px;
+  height: 400px;
   background-color: #fff;
   filter: alpha(opacity=0);
   opacity: 0;

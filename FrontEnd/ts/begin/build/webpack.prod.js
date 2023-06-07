@@ -24,9 +24,9 @@ module.exports = merge(baseConfig, {
     new CleanWebpackPlugin()
   ],
   optimization: {
-     splitChunks: {
+    splitChunks: {
       chunks: 'all'
-     },
+    },
     minimizer: [new OptimizeCSSAssetsPlugin({})]
-   }
+  }
 });

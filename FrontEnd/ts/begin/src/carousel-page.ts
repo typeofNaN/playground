@@ -1,5 +1,5 @@
-import './carousel-page.less';
 import Carousel from './Carousel';
+import './carousel-page.less';
 
 window.addEventListener('DOMContentLoaded', function () {
   const carousels = document.getElementsByClassName('carousel');
@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   });
   console.log(carousel);
-  
+
   const carousel2 = new Carousel(<HTMLElement>carousels[1], {
     loop: true,
     autoplay: true,

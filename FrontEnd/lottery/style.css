@@ -3,25 +3,34 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   overflow-x: hidden;
   text-align: center;
 }
+
 li {
   list-style: none;
 }
+
 .lottery-box {
   position: relative;
 }
-.lottery-box0, .lottery-box1, .lottery-box2 {
+
+.lottery-box0,
+.lottery-box1,
+.lottery-box2 {
   height: 1696px;
 }
+
 .lottery-box3 {
   height: 1711px;
 }
+
 .lottery-box4 {
   height: 1588px;
 }
+
 .lottery-tel {
   position: absolute;
   top: 647px;
@@ -29,33 +38,40 @@ li {
   width: 1000px;
   color: #fff;
 }
+
 .lottery-box2 .lottery-tel {
   top: 664px;
 }
+
 .lottery-li span {
   display: inline-block;
   margin-left: 50px;
 }
+
 .lottery-10 {
   height: 47.2px;
   line-height: 47.2px;
   font-size: 32px;
 }
+
 .lottery-3 {
   height: 112px;
   line-height: 112px;
   font-size: 78px;
 }
+
 .lottery-4 {
   height: 84px;
   line-height: 84px;
   font-size: 68px;
 }
+
 .lottery-1 {
   height: 264px;
   line-height: 264px;
   font-size: 98px
 }
+
 .lottery-jp {
   position: absolute;
   width: 900px;
@@ -63,15 +79,19 @@ li {
   bottom: 130px;
   left: calc(50% - 450px);
 }
+
 .lottery-box2 .lottery-jp {
   bottom: 200px;
 }
+
 .lottery-box1 .lottery-jp {
   bottom: 280px;
 }
+
 .lottery-box0 .lottery-jp {
   bottom: 280px;
 }
+
 .lottery-jp img {
   width: 100%;
 }

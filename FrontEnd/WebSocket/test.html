@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
-<body>
-  
-  <script>
-  var ws = new WebSocket("wss://mktdata.intechtrading.com/mktdata/cfdkline.ashx?contractid=5171&version=1&count=900&type=1&packtype=1");
 
-    ws.onopen = function(evt) { 
-      console.log("Connection open ..."); 
+<body>
+
+  <script>
+    var ws = new WebSocket("wss://mktdata.intechtrading.com/mktdata/cfdkline.ashx?contractid=5171&version=1&count=900&type=1&packtype=1");
+
+    ws.onopen = function (evt) {
+      console.log("Connection open ...");
       ws.send("Hello WebSockets!");
     };
 
-    ws.onmessage = function(evt) {
-      console.log( "Received Message: " + evt);
+    ws.onmessage = function (evt) {
+      console.log("Received Message: " + evt);
       ws.close();
     };
 
-    ws.onclose = function(evt) {
+    ws.onclose = function (evt) {
       console.log("Connection closed.");
     };
   // fetch("https://mktdata.intechtrading.com/mktdata/cfdkline.ashx?contractid=5171&version=1&count=900&type=1&packtype=1&type=1")
@@ -29,4 +31,5 @@
   // .then(data => console.log(data))
   </script>
 </body>
+
 </html>

@@ -1,13 +1,13 @@
-!(function(doc) {
+!(function (doc) {
   var _data = {};  // 保存号码信息
   var ie = doc.all ? true : false;  // 判断是否IE
   var step = 0;  // 步骤进度
-  var stepOption = ['3-1-10', '2-1-3', '2-1-3','2-1-4','1-1-1', '1-2-1', '1-3-1', '1-4-1', '1-5-1', '0-1-1', '0-2-1', '0-3-1', '4-1-10'];  // 抽奖模板
-  var runing = true;  // 是否处于抽奖状态
+  var stepOption = ['3-1-10', '2-1-3', '2-1-3', '2-1-4', '1-1-1', '1-2-1', '1-3-1', '1-4-1', '1-5-1', '0-1-1', '0-2-1', '0-3-1', '4-1-10'];  // 抽奖模板
+  var running = true;  // 是否处于抽奖状态
   var selected;  //中奖结果
   var luckBoy = {};  // 总中奖结果
   var timer;
-  
+
   var _xhr = new XMLHttpRequest();
 
   var app = doc.getElementById('app');
@@ -18,7 +18,7 @@
   function KeyPress() {
     var key = ie ? event.keyCode : KeyPress.arguments[0].keyCode;
     if (key === 39) {
-      if (runing) {
+      if (running) {
         return;
       }
       step++;
@@ -28,10 +28,10 @@
       _renderItem(stepOption[step]);
       step > 3 && step < 12 ? _pushData('nd') : _pushData('yh');
 
-      runing = true; // 重新开启
+      running = true; // 重新开启
     }
     if (key === 13) {
-      if (runing) {
+      if (running) {
         clearInterval(timer);
         selected = [];
         var lists = doc.getElementsByClassName('lottery-li');
@@ -51,7 +51,7 @@
         // 重新开启，进行下一轮抽奖
         step > 3 && step < 12 ? _pushData('nd') : _pushData('yh');
       }
-      runing = !runing;
+      running = !running;
     }
   }
 
@@ -60,10 +60,10 @@
     _http({
       method: 'GET',
       url: 'tel.json',
-      success: function(res) {
-        var datas = res.data;
-        _data['nd'] = datas.filter(item => item.type === 1);
-        _data['yh'] = datas.filter(item => item.type === 0);
+      success: function (res) {
+        var dataList = res.data;
+        _data['nd'] = dataList.filter(item => item.type === 1);
+        _data['yh'] = dataList.filter(item => item.type === 0);
         _pushData('yh');
       }
     })
@@ -120,9 +120,9 @@
   function _deleteArray(arr1, arr2) {
     for (let i = 0; i < arr1.length; i++) {
       for (let j = 0; j < arr2.length; j++) {
-        if (arr1[i].tel === arr2[j]) { 
-          arr1.splice(i,1); 
-          i--; 
+        if (arr1[i].tel === arr2[j]) {
+          arr1.splice(i, 1);
+          i--;
         }
       }
     }
@@ -131,7 +131,7 @@
 
   // XHR方法
   function _http(options) {
-    _xhr.onreadystatechange = function(evt) {
+    _xhr.onreadystatechange = function (evt) {
       if (_xhr.readyState === 4 && _xhr.status === 200) {
         var res = JSON.parse(_xhr.responseText);
         if (options.success) options.success(res);

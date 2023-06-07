@@ -7,6 +7,10 @@
       "2": "b"
     },
     "code": "<h1>aaa</h1>",
-    "nickname": ["aaa", "bbb", "ccc"]
+    "nickname": [
+      "aaa",
+      "bbb",
+      "ccc"
+    ]
   }
 }
