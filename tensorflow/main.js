@@ -4,7 +4,9 @@ const video = document.getElementById('video')
 
 async function getCamera() {
   try {
-    const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true })
+    const mediaStream = await navigator.mediaDevices.getUserMedia({
+      video: true
+    })
     video.srcObject = mediaStream
   } catch (e) {
     console.log(e)
@@ -26,24 +28,20 @@ function detectFace() {
   const { width, height } = video
   document.body.append(canvas)
   setInterval(async () => {
-    const detections = await faceapi.detectAllFaces(video,
-      new faceapi.TinyFaceDetectorOptions())
+    const detections = await faceapi
+      .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
       .withFaceLandmarks(true)
       .withFaceExpressions()
-      .withAgeAndGender();
+      .withAgeAndGender()
 
-    const resizedDetections = faceapi.resizeResults(detections, { width, height });
+    const resizedDetections = faceapi.resizeResults(detections, { width, height })
     ctx.clearRect(0, 0, width, height)
 
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
     resizedDetections.forEach(result => {
       const { age, gender, genderProbability } = result
-      new faceapi.draw.DrawTextField(
-        [
-          `${gender === 'male' ? '男' : '女'} ${~~age} 岁`
-        ],
-        result.detection.box.bottomLeft
-      )
+      new faceapi.draw
+        .DrawTextField([`${gender === 'male' ? '男' : '女'} ${~~age} 岁`], result.detection.box.bottomLeft)
         .draw(canvas)
     })
   }, 300)
